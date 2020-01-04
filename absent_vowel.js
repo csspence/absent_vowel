@@ -19,6 +19,21 @@ There is no need for string validation and every sentence given will contain all
 
 */
 
-function absentVowel(x){
+const absentVowel = (string) => {
+  const vowelArray = ['a', 'e', 'i', 'o', 'u'];
+  let vowelObj = {};
 
+  for (let i = 0; i < string.length; i++) {
+    vowelObj[string[i]] = true;
+  }
+
+  for (let j = 0; j < vowelArray.length; j++) {
+      if(vowelObj[vowelArray[j]] === undefined) {
+          return j;
+      }
+  }
 }
+
+absentVowel("John Doe hs 7 red pples under his bsket"); // 0
+absentVowel("Bb Smith sent us six neatly arranged range bicycles"); // 3
+
